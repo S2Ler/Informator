@@ -1,10 +1,7 @@
-//  Created by Alexander Belyavskiy on 2/17/17.
-
 import XCTest
 @testable import Informator
 
 class InformatorTests: XCTestCase {
-
   func testBasics() {
     var requestCalledCount: Int = 0
     let informator = Informator(presentor: MockPresenter(handler: { _, completion in
@@ -51,16 +48,18 @@ class InformatorTests: XCTestCase {
 
     waitForExpectations(timeout: 1, handler: nil)
   }
-
 }
 
 fileprivate final class MockPresenter: InformatorPresenter {
-  typealias Handler = (Informator<MockPresenter>.Request, _ completion: @escaping () -> Void) -> Void
+  typealias Handler = (InformatorRequest, _ completion: @escaping () -> Void) -> Void
+
   private let handler: Handler
+
   init(handler: @escaping Handler) {
     self.handler = handler
   }
-  func execute(_ request: Informator<MockPresenter>.Request, completion: @escaping () -> Void) {
+
+  func execute(_ request: InformatorRequest, completion: @escaping () -> Void) {
     handler(request, completion)
   }
 }

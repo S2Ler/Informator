@@ -1,5 +1,3 @@
-//  Created by Alexander Belyavskiy on 2/17/17.
-
 import Foundation
 
 public final class Informator<Presentor: InformatorPresenter> {
@@ -43,7 +41,7 @@ public final class Informator<Presentor: InformatorPresenter> {
 }
 
 public extension Informator {
-  public func show(_ message: Messageable) {
+  func show(_ message: Messageable) {
     let okAction = InformatorAction.okAction()
     execute(InformatorRequest(message: message, actions: [okAction]))
   }
