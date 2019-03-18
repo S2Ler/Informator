@@ -12,13 +12,14 @@
 		09711D1F1E57588C00AA26CF /* Informator.h in Headers */ = {isa = PBXBuildFile; fileRef = 09711D111E57588C00AA26CF /* Informator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		09711D2A1E5758E600AA26CF /* Informator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D291E5758E600AA26CF /* Informator.swift */; };
 		09711D2C1E57595000AA26CF /* InformatorPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D2B1E57595000AA26CF /* InformatorPresentor.swift */; };
-		09711D2E1E575F6100AA26CF /* Messagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D2D1E575F6100AA26CF /* Messagable.swift */; };
+		09711D2E1E575F6100AA26CF /* Messageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D2D1E575F6100AA26CF /* Messageable.swift */; };
 		09711D301E57781400AA26CF /* FIFOQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D2F1E57781400AA26CF /* FIFOQueue.swift */; };
 		09711D321E57787F00AA26CF /* FIFOQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09711D311E57787F00AA26CF /* FIFOQueueTests.swift */; };
 		09D7D4371E577B1E0003F00C /* Informator.Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7D4361E577B1E0003F00C /* Informator.Request.swift */; };
 		09D7D4391E577DC60003F00C /* InformatorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7D4381E577DC60003F00C /* InformatorAction.swift */; };
 		09DC5B0D1E5786BF00B7296C /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC5B0C1E5786BF00B7296C /* MockMessage.swift */; };
 		09DC5B121E578A2C00B7296C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC5B101E578A2900B7296C /* Localization.swift */; };
+		09EC5F8C22402D8E003861EA /* Messageable+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EC5F8B22402D8E003861EA /* Messageable+Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +41,14 @@
 		09711D1E1E57588C00AA26CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09711D291E5758E600AA26CF /* Informator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Informator.swift; sourceTree = "<group>"; };
 		09711D2B1E57595000AA26CF /* InformatorPresentor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformatorPresentor.swift; sourceTree = "<group>"; };
-		09711D2D1E575F6100AA26CF /* Messagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messagable.swift; sourceTree = "<group>"; };
+		09711D2D1E575F6100AA26CF /* Messageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messageable.swift; sourceTree = "<group>"; };
 		09711D2F1E57781400AA26CF /* FIFOQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIFOQueue.swift; sourceTree = "<group>"; };
 		09711D311E57787F00AA26CF /* FIFOQueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIFOQueueTests.swift; sourceTree = "<group>"; };
 		09D7D4361E577B1E0003F00C /* Informator.Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Informator.Request.swift; sourceTree = "<group>"; };
 		09D7D4381E577DC60003F00C /* InformatorAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformatorAction.swift; sourceTree = "<group>"; };
 		09DC5B0C1E5786BF00B7296C /* MockMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
 		09DC5B101E578A2900B7296C /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		09EC5F8B22402D8E003861EA /* Messageable+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messageable+Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +83,12 @@
 		09711D081E57587000AA26CF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				09DC5B0F1E578A1B00B7296C /* Helpers */,
+				09EC5F8A22402D7C003861EA /* Helpers */,
+				09EC5F8922402D41003861EA /* Messageable */,
 				09711D291E5758E600AA26CF /* Informator.swift */,
 				09D7D4361E577B1E0003F00C /* Informator.Request.swift */,
 				09D7D4381E577DC60003F00C /* InformatorAction.swift */,
 				09711D2B1E57595000AA26CF /* InformatorPresentor.swift */,
-				09711D2D1E575F6100AA26CF /* Messagable.swift */,
 				09711D2F1E57781400AA26CF /* FIFOQueue.swift */,
 			);
 			path = Sources;
@@ -121,12 +123,21 @@
 			path = InformatorTests;
 			sourceTree = "<group>";
 		};
-		09DC5B0F1E578A1B00B7296C /* Helpers */ = {
+		09EC5F8922402D41003861EA /* Messageable */ = {
+			isa = PBXGroup;
+			children = (
+				09711D2D1E575F6100AA26CF /* Messageable.swift */,
+				09EC5F8B22402D8E003861EA /* Messageable+Error.swift */,
+			);
+			path = Messageable;
+			sourceTree = "<group>";
+		};
+		09EC5F8A22402D7C003861EA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				09DC5B101E578A2900B7296C /* Localization.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09711D2E1E575F6100AA26CF /* Messagable.swift in Sources */,
+				09EC5F8C22402D8E003861EA /* Messageable+Error.swift in Sources */,
+				09711D2E1E575F6100AA26CF /* Messageable.swift in Sources */,
 				09711D2A1E5758E600AA26CF /* Informator.swift in Sources */,
 				09DC5B121E578A2C00B7296C /* Localization.swift in Sources */,
 				09711D2C1E57595000AA26CF /* InformatorPresentor.swift in Sources */,
