@@ -1,6 +1,6 @@
 import Foundation
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
   internal struct UIKitLocalization {
     public static func get(_ key: Key) -> String? {
       return Bundle(identifier: "com.apple.UIKit")?.localizedString(forKey: key.rawKey, value: nil, table: nil)
