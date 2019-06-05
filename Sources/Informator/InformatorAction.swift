@@ -22,6 +22,6 @@ public final class InformatorAction {
   }
 
   public static func okAction(handler: ((InformatorAction) -> Void)? = nil) -> InformatorAction {
-    return InformatorAction(title: UIKitLocalization.get(.ok) ?? "Ok", handler: handler)
+    return InformatorAction(title: AppLocalization.get(.ok) ?? "Ok", handler: handler)
   }
 }
