@@ -36,3 +36,12 @@ public struct Message: Messageable {
   public var messageTitle: String { return title }
   public var messageBody: String { return body }
 }
+
+// MARK: - Swift 5.5 features
+#if swift(>=5.5)
+extension Messageable where Self == MessageableError {
+  public static func error(from error: Error) -> MessageableError {
+      .init(from: error)
+  }
+}
+#endif
