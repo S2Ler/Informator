@@ -44,7 +44,7 @@ public struct Message: Messageable {
 extension Messageable where Self == MessageableError {
     public static func error(
         from error: Error,
-        title: String?
+        title: String? = nil
     ) -> MessageableError {
       .init(from: error, title: title)
   }
