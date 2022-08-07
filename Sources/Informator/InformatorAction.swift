@@ -1,17 +1,17 @@
 import Foundation
 
-public final class InformatorAction {
+public struct InformatorAction: Sendable {
   public let title: String
   public let style: Style
-  private let handler: ((InformatorAction) -> Void)?
+  private let handler: (@Sendable (InformatorAction) -> Void)?
 
-  public init(title: String, style: Style = .default, handler: ((InformatorAction) -> Void)?) {
+  public init(title: String, style: Style = .default, handler: (@Sendable (InformatorAction) -> Void)?) {
     self.title = title
     self.style = style
     self.handler = handler
   }
 
-  public enum Style {
+  public enum Style: Sendable {
     case `default`
     case cancel
     case destructive
@@ -21,7 +21,7 @@ public final class InformatorAction {
     handler?(self)
   }
 
-  public static func okAction(handler: ((InformatorAction) -> Void)? = nil) -> InformatorAction {
+  public static func okAction(handler: (@Sendable (InformatorAction) -> Void)? = nil) -> InformatorAction {
     return InformatorAction(title: AppLocalization.get(.ok) ?? "Ok", handler: handler)
   }
 }

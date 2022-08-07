@@ -1,48 +1,29 @@
 import Foundation
 
-public final class Informator<Presentor: InformatorPresenter> {
+public actor Informator<Presentor: InformatorPresenter>: @unchecked Sendable {
   private let presentor: Presentor
 
   private var queue: FIFOQueue<InformatorRequest>
   private var currentRequest: InformatorRequest?
 
-  private let dispatchQueue = DispatchQueue(label: "Informator",
-                                            qos: .userInitiated,
-                                            target: DispatchQueue.global(qos: .userInitiated))
-
   public init(presentor: Presentor) {
     self.presentor = presentor
-    queue = FIFOQueue()
+    self.queue = FIFOQueue()
   }
 
-  public func execute(_ request: InformatorRequest) {
-    dispatchQueue.sync {
-      queue.push(request)
-      processNextRequestIfNeeded()
-    }
+  public func execute(_ request: InformatorRequest) async {
+    queue.push(request)
+    await processNextRequestIfNeeded()
   }
 
-  private func processNextRequestIfNeeded() {
-    dispatchPrecondition(condition: .onQueue(dispatchQueue))
-
+  private func processNextRequestIfNeeded() async {
     guard currentRequest == nil,
       let nextRequest = queue.pop() else { return }
 
-    self.currentRequest = nextRequest
+    currentRequest = nextRequest
 
-    presentor.execute(nextRequest) { [weak self] in
-      guard let this = self else { return }
-      this.dispatchQueue.async {
-        this.currentRequest = nil
-        this.processNextRequestIfNeeded()
-      }
-    }
-  }
-}
-
-public extension Informator {
-  func show(_ message: Messageable) {
-    let okAction = InformatorAction.okAction()
-    execute(InformatorRequest(message: message, actions: [okAction]))
+    await presentor.execute(nextRequest)
+    currentRequest = nil
+    await processNextRequestIfNeeded()
   }
 }

@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol InformatorPresenter {
-  func execute(_ request: InformatorRequest, completion: @escaping () -> Void)
+public protocol InformatorPresenter: Sendable {
+  func execute(_ request: InformatorRequest) async
 }
